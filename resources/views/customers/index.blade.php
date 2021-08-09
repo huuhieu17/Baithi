@@ -7,9 +7,9 @@
         <div class="col-md-10">
             <form action="{{route('customers.index')}}" method="get">
                 <div class="form-group">
-                    <input type="text" name="keyword" class="form-control w-50" style="display: inline-block"> <button class="btn btn-secondary">Tìm kiếm</button>
+                    <input type="text" name="keyword" placeholder="Tên khách hàng" class="form-control w-50" style="display: inline-block"> <button class="btn btn-secondary">Tìm kiếm</button>  <button type="button" onclick="window.location.replace('/customers/create')" class="btn btn-secondary">Create Customers</button>
                 </div>
-                <button type="button" onclick="window.location.replace('/customers/create')">Create Customers</button>
+
             </form>
             <table class="table table-bordered">
                 <thead>
@@ -47,6 +47,9 @@
                         <td>{{$d->email}}</td>
                     </tr>
                 @empty
+                    <tr>
+                        <td colspan="6"> Không tìm thấy khách hàng nào</td>
+                    </tr>
                 @endforelse
                 </tbody>
             </table>

@@ -19,7 +19,8 @@ class CustomerController extends Controller
         $keyword = $request->input('keyword');
         if (isset($keyword)){
 
-            $data = Customers::where('hoTen','like','%'.$keyword.'%')->get();
+            $data = Customers::where(
+                'hoTen','like','%'.$keyword.'%')->orWhere('sdt', 'like', '%'.$keyword.'%')->get();
         }else{
             $data = Customers::all();
         }

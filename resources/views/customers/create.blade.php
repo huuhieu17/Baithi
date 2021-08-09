@@ -5,6 +5,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-8 m-auto">
+            <p>
+                @if(isset($error))
+                    {{$error}}
+
+                    @endif
+            </p>
             <form action="{{route('customers.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
